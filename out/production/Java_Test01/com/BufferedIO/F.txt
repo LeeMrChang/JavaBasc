@@ -1,0 +1,4 @@
+1
+helloWord
+b
+Person{name='传奇', age=18}
