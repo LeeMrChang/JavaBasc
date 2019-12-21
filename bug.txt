@@ -1,0 +1,7 @@
+add方法异常
+NullPointerException异常的名称
+null方法异常-----------------------
+div方法异常
+ArithmeticException异常的名称
+/ by zero方法异常-----------------------
+本次测试一共出现2次异常
