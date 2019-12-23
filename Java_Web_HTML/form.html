@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单标签</title>
+</head>
+<body>
+<!--
+    form是表单标签，它的作用:1.接收用户的输入信息 2.将客户端的数据提交到服务器
+    form相当于是一个表单的容器，它里面能够存放表单项标签
+        属性:1. action表示要提交到的服务器路径   2.method数据提交的方式:GET(默认的方式)和POST
+        input:
+        属性:
+            type表示的是这个表单项的类型，它有如下一些取值
+            1. text表示文本框(默认)
+            2. password密码框
+            3. radio单选框(同一组单选框的name属性要相同)
+            4. checkbox多选框/复选框(同一组复选框的name属性也要相同)
+            5. file文件选择框
+            6. date日期选择框
+            7. button普通按钮，不内置任何功能,通过value指定其上的文字
+            8. submit提交按钮，内置提交表单的功能
+            9. reset重置按钮，它能够将表单恢复到默认状态
+            10. hidden隐藏域，向服务器提交数据单数不让客户端看到
+
+            name属性:只有当这个表单项有name属性那么它的值才能被携带到服务器
+            value属性:
+                1.对于输入框而言，输入的值就是value属性的值
+                2.对于按钮而言，value就是按钮上的文字
+                3.对于多选框和单选框而言，必须加上value，否则提交到数据库的value就是"on"
+            其它属性:
+                1. checked表示默认选中(radio和checkbox的属性)
+                2. disabled表示表单项不可用:既不能输入值，也不能提交到服务器
+                3. readonly表示表单项只读:不能够输入数据，但是数据能够提交到服务器
+                4. placeholder表示输入框的提示信息
+
+            请求提交方式的区别:get和post的区别
+                1. get方式提交数据是在url地址后面携带，post方式提交数据是携带在HTTP请求的请求体中
+                2. get携带数据只能是字符串并且数据的大小是有限制的，而post方式携带数据的大小以及类型没有限制
+                3. post方式相对较安全
+
+        select:下拉选择框,它里面必须有option标签，表示下拉选择项,它必须有name属性
+            option标签、下拉选择项
+            如果option没有指定value，那么提交到服务器去的就是option标签体的内容
+
+            下拉选择框默认选中的是第一个option，name我们可以通过selected属性改变其默认选中的option
+
+            multiple属性，可以将下拉选择框变成多选
+        textarea:多行文本域
+            属性:
+                cols:显示的列数,其实就是改变文本域的宽度
+                rows:显示的行数，其实就是改变文本域的高度
+-->
+<h1>用户注册</h1>
+<hr/>
+<form action="server01" method="get">
+    用户名:<input type="text" name="username" placeholder="请输入用户名"><br>
+    密码:<input type="password" name="pwd" placeholder="请输入密码"><br>
+    性别:<input type="radio" name="gender" value="male" checked="checked">男 <input type="radio" name="gender" value="female">女<br>
+    爱好:
+    <input type="checkbox" name="hobby" value="basketball">篮球
+    <input type="checkbox" name="hobby" value="football">足球
+    <input type="checkbox" name="hobby" value="yumaoball" checked="checked">羽毛球
+    <input type="checkbox" name="hobby" value="pingpangball">乒乓球<br>
+    学历:
+    <select name="xueli" multiple="multiple">
+        <option value="bs">博士</option>
+        <option value="ss">硕士</option>
+        <option value="bk">本科</option>
+        <option value="zk" selected="selected">专科</option>
+    </select><br>
+    照片:<input type="file"><br>
+    生日:<input type="date" name="birthday"><br>
+
+    个人简介:<textarea name="info" rows="10" cols="100"></textarea><br>
+
+    <input type="hidden" name="id" value="888">
+    <input type="button" value="按钮">
+    <input type="submit">
+    <input type="reset">
+</form>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+</head>
+<style>
+    /*1.table居中,宽300px，高180px; 边框solid 1px gray，内边距为0*/
+    /*4.table添加背景，重复平铺*/
+    table{
+        /*居中其实就是让左右外边距相同*/
+        margin: auto;
+
+        width: 300px;
+        height: 180px;
+        border: solid 1px gray;
+
+        padding: 0px;
+
+        /*background-image: url("../img/bg1.jpg");*/
+    }
+    /*2.表格有四行，第一行和第四行跨2列，第一列占30%的宽度，第一行是标题th，第四行是放按钮*/
+    .one{
+        width: 30%;
+    }
+    /*3.td的文字对齐居中，字体大小14px*/
+    td{
+        text-align: center;
+        font-size: 14px;
+    }
+    /*5.用户名和密码文本框使用类样式(也可以使用[条件选择器])，宽150px，高32px，边框用实线，圆角5px，1个宽度，黑色*/
+    .ipt{
+        width: 150px;
+        height: 32px;
+        border: solid 1px black;
+        border-radius: 5px;
+    }
+    /*6.使用伪类样式，当鼠标移动到文本框上的时候，变成虚线橙色边框。得到焦点，背景色变成浅黄色*/
+    input[type='text']:hover{
+        border: 1px dotted orange;
+    }
+    input[type='text']:focus{
+        background-color: lightgoldenrodyellow;
+    }
+    /*7.文本框前面有头像，密码框前面有键盘，左内边距32*/
+    input[type='text']{
+        /*background-image: url("../img/head.png");*/
+        background-repeat: no-repeat;
+        padding-left: 32px;
+    }
+    input[type='password']{
+        /*background-image: url("../img/keyboard.png");*/
+        background-repeat: no-repeat;
+        padding-left: 32px;
+    }
+
+    /*8.用户登录的标题字体大小18px*/
+    th{
+        font-size: 18px;
+    }
+</style>
+<body>
+<form action="server01" method="get">
+    <table>
+        <tr>
+            <th colspan="2">
+                用户登录
+            </th>
+        </tr>
+        <tr>
+            <td class="one">用户名:</td>
+            <td>
+                <input class="ipt" type="text" name="username">
+            </td>
+        </tr>
+        <tr>
+            <td class="one">密码:</td>
+            <td>
+                <input class="ipt" type="password" name="pwd">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <!--
+                    type为image表示图片按钮，它也内置提交表单的功能
+                -->
+                <input type="image" src="../img/regbtn.jpg">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

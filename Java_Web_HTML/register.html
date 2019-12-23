@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+</head>
+<style>
+    /*1.设置所有元素的内外边距为0，设置box-sizing: border-box，即：边框的宽和高就是盒子的宽和高，不会因为内边距或内容的变大而撑大。*/
+    *{
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    /*2.创建外面的白色div容器，类名rg_form，宽886，高534，背景色为白色，上下外边距24，左右自动，边框为8，实线，颜色为#eee*/
+    .rg_form{
+        width: 886px;
+        height: 534px;
+        background-color: white;
+        margin: 24px auto;/*上下外边距24，左右自动*/
+        border: 8px solid #eee;
+    }
+    /*3.左边的的容器，类名为rg_form_left，宽度为256，左浮动，上内边距20，左内边距20*/
+    .rg_form_left{
+        width: 256px;
+        float: left;
+        padding-top: 20px;
+        padding-left: 20px;
+    }
+
+    /*4."新用户注册"汉字，第1行使用p标签，可以使用伪类样式，p:first-child，字体20，颜色：#ffcd26*/
+    .rg_form_left p:first-child{
+        font-size: 20px;
+        color: #ffcd26;
+    }
+    /*5."新用户注册"第2行英文使用p标签，内容：USER REGISTER，使用伪类样式，p:last-child，字体20，颜色：#a6a6a6*/
+    .rg_form_left p:last-child{
+        font-size: 20px;
+        color: #a6a6a6;
+    }
+    /*6.中间注册窗体的容器类名rg_form_center，宽358，左浮动，上内边距10，字体大小14*/
+    .rg_form_center{
+        width: 358px;
+        float: left;
+        padding-top: 10px;
+        font-size: 14px;
+    }
+    /*7.中间容器中的表格类名rg_table，上外边距25*/
+    .rg_table{
+        margin-top: 25px;
+    }
+    /*8.表单中左边的文字所在单元格，类名td_left，宽65，文本右对齐*/
+    .td_left{
+        width: 65px;
+        text-align: right;
+    }
+    /*9.表单中右边的输入框单元格类名td_right，宽293，高50*/
+    .td_right{
+        width: 293px;
+        height: 50px;
+    }
+    /*10.表单中的文本框，日期框，密码框使用类选择器，宽256，高32，行高32，内边距上下6，左右12，圆角4，边框：1 实线 颜色#a6a6a6，右浮动*/
+    .ipt{
+        width: 256px;
+        height: 32px;
+        line-height: 32px;
+        padding: 6px 12px;
+        border-radius: 4px;
+        border: 1px solid #a6a6a6;
+        float: right;
+    }
+    /*11.性别类名：gender，左内边距40*/
+    .gender{
+        padding-left: 40px;
+    }
+    /*12.验证码输入框id：check，宽118，左浮动，左外边距35，右外边距14*/
+    #check{
+        width: 118px;
+        float: left;
+        margin-left: 35px;
+        margin-right: 14px;
+    }
+    /*13.提交按钮类名：submit，宽120，高36，行高36，背景色#ffc900，字体大小14，边框类型为none*/
+    .submit{
+        width: 120px;
+        height:36px;
+        line-height: 36px;
+        background-color: #ffc900;
+        font-size: 14px;
+        border-style: none;
+    }
+
+    /*14.右边"已有账号"的容器类名 rg_form_right，宽256，右浮动。*/
+    .rg_form_right{
+        width: 256px;
+        float: right;
+    }
+    /*15.右边的文字p标签，右浮动，字大小14，内边距，上20，右12，下0，左0*/
+    .rg_form_right p{
+        float: right;
+        font-size: 14px;
+        padding: 20px 12px 0px 0px;
+    }
+    /*16.p内部有个a标签，颜色#fc8989*/
+    .rg_form_right p a{
+        color: #fc8989;
+    }
+</style>
+<body>
+<div class="rg_form">
+    <div class="rg_form_left">
+        <p>新用户注册</p>
+        <p>USERREGISTER</p>
+    </div>
+    <div class="rg_form_center">
+        <form action="server01" method="get">
+            <table class="rg_table">
+                <tr>
+                    <td class="td_left">用户名</td>
+                    <td class="td_right">
+                        <input type="text" class="ipt" placeholder="请输入账号">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_left">密码</td>
+                    <td class="td_right">
+                        <input type="password" class="ipt" placeholder="请输入密码">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_left">Email</td>
+                    <td class="td_right">
+                        <input type="text" class="ipt" placeholder="请输入邮箱">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_left">姓名</td>
+                    <td class="td_right">
+                        <input type="text" class="ipt" placeholder="请输入姓名">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_left">性别</td>
+                    <td class="td_right gender">
+                        <input type="radio" checked="checked" name="gender" value="male">男
+                        <input type="radio" name="gender" value="female">女
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_left">手机号</td>
+                    <td class="td_right">
+                        <input type="text" class="ipt" name="tel" placeholder="请输入手机号">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_left">生日</td>
+                    <td class="td_right">
+                        <input class="ipt" type="date">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_left">验证码</td>
+                    <td class="td_right">
+                        <input id="check" class="ipt" type="text">
+                        <img src="../img/checkcode.jpg"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td_left"></td>
+                    <td class="td_right">
+                        <input class="submit" type="submit" value="注册">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="rg_form_right">
+        <p>已有账号?<a href="../07_用户登录界面/login.html">立即登录</a></p>
+    </div>
+</div>
+</body>
+</html>
