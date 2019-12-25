@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日期对象</title>
+</head>
+<style>
+    td{
+        border: 1px solid;
+    }
+</style>
+<body>
+<script>
+
+    var date = new Date();
+    //默认打印美国日期形式：
+    //Tue Dec 24 2019 21:03:36 GMT+0800 (中国标准时间)
+    document.write(date+"<br>");
+    //转为中国的日期形式  :  2019/12/24 下午9:06:25
+    document.write(date.toLocaleString(date)+"<br>");
+    //获取毫秒值，也就是获取时间戳格式  1577192827868
+    document.write(date.getTime()+"<br>");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array(数组)对象</title>
+</head>
+<style>
+    td{
+        border: 1px solid;
+    }
+</style>
+<body>
+<script>
+    //Array对象的三种创建方式
+    var arr = new Array("a","b","c");
+    var arr2 = new Array(3);
+    var arr3 = [1,2,3,4,5];
+    document.write(arr+"<br>");
+    document.write(arr2+"<br>");
+    document.write(arr3+"<br>");
+    //数组长度可变且元素类型可变
+    var num = ["a",1,true,1,2,3,4];
+    document.write(num+"<br>");
+    document.write(num.length+"<br>");
+    //没有定义到第89的索引，但js的数组长度是可变的，没有错。默认值是undefined
+    document.write(num[89]);
+
+
+</script>
+</body>
+</html>
