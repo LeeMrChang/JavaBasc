@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document对象</title>
+</head>
+<body>
+    <div id="d1">div1</div>
+    <div id="d2">div2</div>
+    <div id="d3">div3</div>
+    <div id="d4">div4</div>
+
+    <div class="cla1">class1</div>
+    <div class="cla1">class2</div>
+
+    <input type="text" name="username">
+<script>
+    //2、根据元素名获取元素们
+    var tagName = document.getElementsByTagName("div");
+    //alert(tagName.length)
+    //3、根据class属性获取元素们
+    var className = document.getElementsByClassName("cla1");
+    //alert(className.length)
+    //4、根据name属性获取元素们
+    var byName = document.getElementsByName("username");
+    alert(byName.length)
+</script>
+</body>
+</html>

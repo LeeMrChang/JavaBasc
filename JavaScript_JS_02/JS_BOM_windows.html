@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>windows对象</title>
+</head>
+<body>
+
+    <script>
+        //windows对象常用的弹框方法
+
+        window.alert("asdf")
+        //判断退出弹框之后的逻辑
+        var unm = window.confirm("您确定要退出吗？");
+        if(unm){
+            //退出
+            alert("走吧")
+        }else {
+            //不退出
+            alert("停留！")
+        }
+        //弹出输入框，输入值，也可提示输入的信息,获取用户输入的返回值
+        var str = window.prompt("请输入文字");
+        alert(str)
+
+
+
+    </script>
+
+</body>
+</html>

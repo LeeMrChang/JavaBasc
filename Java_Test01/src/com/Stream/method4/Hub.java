@@ -1,5 +1,7 @@
 package com.Stream.method4;
 
+import java.util.stream.Collectors;
+
 /**
  * @ClassName:Hub
  * @Author：Mr.lee

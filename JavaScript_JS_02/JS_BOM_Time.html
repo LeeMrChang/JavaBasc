@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+</head>
+<body>
+
+    <script>
+        //设置定时器
+        var timeout = setTimeout(fun,2000);
+        //关闭定时器
+        clearTimeout(timeout);
+        function fun() {
+            alert("boom~~")
+        }
+        //设置循环定时器
+        var inter = setInterval(fun2,2000);
+        function fun2() {
+            alert("boom~~")
+        }
+        //关闭循环定时器
+        clearInterval(inter);
+    </script>
+
+</body>
+</html>

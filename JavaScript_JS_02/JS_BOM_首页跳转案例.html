@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页跳转案例</title>
+    <style>
+        p{
+            text-align: center;
+        }
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <span id="time">5</span>秒之后跳转到...
+    </p>
+<script>
+    //1、获取对象，进行逻辑判断什么事开始跳转
+    //定义一个变量，用来计算秒数之后条状
+    var second = 5;
+    function showTime() {
+        second --;
+        if(second<=0){
+            //2、指定跳转的路径
+            location.href = "https://www.jd.com";
+        }
+        var time = document.getElementById("time");
+        time.innerHTML = second+'';
+    }
+    //設置定時器
+    setInterval(showTime,1000);
+</script>
+</body>
+</html>

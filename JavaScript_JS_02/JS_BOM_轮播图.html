@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+</head>
+<body>
+    <img id="img" src="img/0.jpg" width="500">
+<script>
+    //2、逻辑判断轮播图的展示路径
+    var number = 0;
+    function fun(){
+        //每次轮播自增
+        number++;
+        //当自增到4
+        if(number>4){
+            number = 0;
+        }
+        var img = document.getElementById("img");
+        //修改图片属性
+        img.src = "img/"+number+".jpg";
+    }
+    //3、设置定时事件轮播，触发函数
+    setInterval(fun,1000);
+</script>
+</body>
+</html>

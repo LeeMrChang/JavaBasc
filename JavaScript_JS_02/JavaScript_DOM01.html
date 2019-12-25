@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dom对象用法</title>
+</head>
+<body>
+
+    <img id="app" src="img/off.gif">
+    <h1 id="title">悔创阿里杰克马</h1>
+
+
+<script>
+    //获取DOM对象的，根据id获取
+    var element = document.getElementById("app");
+    alert(element);
+    //修改DOM对象的属性
+    element.src = "img/open.gif"
+    /*var element = document.getElementById("title");
+    document.write(element);
+    element.innerHTML = "不识妻美刘强东";*/
+    // document.write(element)
+
+</script>
+</body>
+</html>

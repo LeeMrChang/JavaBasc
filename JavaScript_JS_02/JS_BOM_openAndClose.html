@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打开与关闭窗口</title>
+</head>
+
+<body>
+  <input id="openBtn" type="button" value="打开窗口" >
+  <input id="offBtn"  type="button" value="关闭窗口">
+
+<script>
+    var opm = document.getElementById("openBtn");
+    var newWindows;
+    //绑定点击事件,打开窗口
+    opm.onclick = function () {
+       newWindows = open("https://www.jd.com");
+    };
+    //绑定点击事件,关闭窗口
+    var off = document.getElementById("offBtn");
+    off.onclick = function () {
+        //关闭窗口
+         newWindows.close();
+    }
+</script>
+</body>
+</html>
