@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Element对象</title>
+</head>
+<body>
+  <a>点击跳转...</a>
+   <input type="button" id="btn" value="设置属性">
+   <input type="button" id="btn2" value="删除属性">
+<script>
+    //获取
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        //获取a标签的属性对象
+        var byName = document.getElementsByTagName("a")[0];
+        //设置标签属性
+        byName.setAttribute("href","https://www.jd.com");
+    }
+    //获取
+    var btn2 = document.getElementById("btn2");
+    btn2.onclick = function () {
+        //获取a标签的属性对象
+        var byName = document.getElementsByTagName("a")[0];
+        //删除标签属性
+        byName.removeAttribute("href");
+    }
+</script>
+</body>
+</html>

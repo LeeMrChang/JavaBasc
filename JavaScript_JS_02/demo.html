@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市级联案例</title>
+</head>
+<script>
+    //准备数据，使用二维数组来存放数据
+    //什么是二维数组:数组中的元素也是数组
+    /*var arr = [[1,2],[3,4],[5,6]]
+    arr[2][0]*/
+
+    var citys = [[""], ["广州", "湛江", "东莞", "河源"],
+        ["南宁", "桂林", "北海", "玉林"],
+        ["长沙", "衡阳", "岳阳", "邵阳"]];
+
+    function selectCity() {
+        //1.获取当前省份对应的城市信息
+        //首先要获取当前选中的option的value属性值
+        var province = document.getElementById("provinceId");
+        var value = province.value;
+        //获取当前省份对应的城市数组
+        var items = citys[value];
+
+        //获取城市下拉框
+        var city = document.getElementById("cityId");
+        //遍历出每一个城市名称
+        //遍历添加option之前，要将原来的城市清空
+        /*city.length = 1*/
+
+        city.innerHTML = "<option value=''>--请选择市--</option>"
+        for(var i=0;i<items.length;i++){
+            var cityName = items[i];
+            //1.创建一个option标签
+            var optionElement = document.createElement("option");
+            optionElement.innerHTML = cityName
+
+            //将option添加到城市下拉框
+            city.appendChild(optionElement)
+        }
+    }
+</script>
+<body>
+    <!--1.给省份的下拉框绑定一个域的内容改变的事件-->
+    <select id="provinceId" onchange="selectCity()">
+        <option value="0">--请选择省--</option>
+        <option value="1">广东省</option>
+        <option value="2">广西省</option>
+        <option value="3">湖南省</option>
+    </select>
+
+    <select id="cityId">
+        <option value="">--请选择市--</option>
+
+    </select>
+</body>
+</html>
