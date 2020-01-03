@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证码</title>
+</head>
+<body>
+<script>
+
+    window.onload = function () {
+         //1、获取图片对象
+        var img = document.getElementById("checkCode");
+        //2、绑定点击事件
+        img.onclick = function () {
+            //加时间戳，随机变换验证码图片
+            var date = new Date().getTime();
+            //切换图片路径
+            img.src = "/checkCodeServlet?"+date;
+        }
+    }
+
+</script>
+
+    <img id="checkCode" src="/checkCodeServlet">
+
+    <a id="code" href="">看不清,换一张.....</a>
+</body>
+</html>
