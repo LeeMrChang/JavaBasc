@@ -52,5 +52,6 @@
         <jarDirectory url="file://$MODULE_DIR$/web/WEB-INF/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="lib (14)" level="project" />
   </component>
 </module>

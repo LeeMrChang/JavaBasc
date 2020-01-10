@@ -17,7 +17,7 @@ public class UserDao {
 
     private JdbcTemplate template = new JdbcTemplate(JDBCUtil.getDataSource());
     /**
-     * 登录校验方法
+     * 登录校验方法JDBCUtil
      */
     public User login(User user) {
         String sql = "select * from user where username=? and password = ?";
