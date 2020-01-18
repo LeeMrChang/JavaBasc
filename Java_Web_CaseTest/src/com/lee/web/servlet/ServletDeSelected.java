@@ -1,5 +1,8 @@
 package com.lee.web.servlet;
 
+import com.lee.service.ContactService;
+import com.lee.service.impl.ContactServiceImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +21,10 @@ import java.io.IOException;
 public class ServletDeSelected extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String[] uids = request.getParameterValues("uid");
+        ContactService contactService = new ContactServiceImpl();
+        contactService.deleteUids(uids);
+        response.sendRedirect(request.getContextPath()+"/servletList");
     }
 
     @Override

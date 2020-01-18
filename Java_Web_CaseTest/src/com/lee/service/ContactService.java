@@ -1,6 +1,7 @@
 package com.lee.service;
 
 import com.lee.domain.Contact;
+import com.lee.domain.PageBean;
 
 import java.util.List;
 
@@ -26,4 +27,8 @@ public interface ContactService {
     Contact findContact(String id);
 
     boolean updateContact(Contact contact);
+
+    void deleteUids(String[] uids);
+
+    PageBean<Contact> findByPageContact(String currentPage, String pageSize);
 }

@@ -94,4 +94,16 @@ public class ContactDaoImpl implements ContactDao {
        }
        return false;
     }
+
+    @Override
+    public int findByContactCount() {
+        String sql = "select count(*) from contact";
+        return jdbcTemplate.queryForObject(sql,Integer.class);
+    }
+
+    @Override
+    public List<Contact> findByContactPage(int start, int size) {
+        String sql = "select * from contact limit ?,?";
+        return jdbcTemplate.query(sql,new BeanPropertyRowMapper<Contact>(Contact.class),start,size);
+    }
 }

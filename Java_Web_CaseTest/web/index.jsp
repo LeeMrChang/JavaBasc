@@ -11,8 +11,10 @@
     <title>首页</title>
   </head>
   <body>
+  <div align="center">
     <a href="servletList"><h1>查看所有联系人</h1></a>
     <br>
-    <a href="page?curPage=1"><h1>分页查看联系人</h1></a>
+    <a href="getByPage?currentPage=1"><h1>分页查看联系人</h1></a>
+  </div>
   </body>
 </html>

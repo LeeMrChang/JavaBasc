@@ -23,4 +23,9 @@ public interface ContactDao {
     Contact findContact(int id);
 
     boolean updateContact(Contact contact);
+
+    int findByContactCount();
+
+
+    List<Contact> findByContactPage(int start, int size);
 }

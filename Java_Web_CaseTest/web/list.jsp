@@ -51,62 +51,77 @@
 
     <div style="float: right;margin: 5px;">
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/add.jsp">添加联系人</a>
-        <a class="btn btn-primary" href="javascript:;" onclick="del('${contact.id}')">删除选中</a>
+        <a class="btn btn-primary" href="javascript:;" id="delSelected">删除选中</a>
     </div>
-    <form action="${pageContext.request.contextPath}/servletDeSelected" method="post">
-    <table border="1" class="table table-bordered table-hover">
-        <tr class="success">
-            <th><input type="checkbox"></th>
-            <th>编号</th>
-            <th>姓名</th>
-            <th>性别</th>
-            <th>年龄</th>
-            <th>籍贯</th>
-            <th>QQ</th>
-            <th>邮箱</th>
-            <th>操作</th>
-        </tr>
-        <c:forEach items="${list}" var="contact">
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>${contact.id}</td>
-                <td>${contact.username}</td>
-                <td>${contact.sex}</td>
-                <td>${contact.age}</td>
-                <td>${contact.address}</td>
-                <td>${contact.qq}</td>
-                <td>${contact.email}</td>
-                <td>
-                    <a class="btn btn-default btn-sm"
-                       href="${pageContext.request.contextPath}/servletFindContact?id=${contact.id}">修改</a>&nbsp;
-                    <a class="btn btn-default btn-sm"
-                       href="javascript:;" onclick="del('${contact.id}')">删除</a>
-                </td>
+    <form id="form" action="${pageContext.request.contextPath}/servletDeSelected" method="post">
+        <table border="1" class="table table-bordered table-hover">
+            <tr class="success">
+                <th><input type="checkbox" id="one"></th>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>籍贯</th>
+                <th>QQ</th>
+                <th>邮箱</th>
+                <th>操作</th>
             </tr>
-        </c:forEach>
-    </table>
+            <c:forEach items="${pageBean.bean}" var="contact">
+                <tr>
+                    <td><input type="checkbox" name="uid" value="${contact.id}"></td>
+                    <td>${contact.id}</td>
+                    <td>${contact.username}</td>
+                    <td>${contact.sex}</td>
+                    <td>${contact.age}</td>
+                    <td>${contact.address}</td>
+                    <td>${contact.qq}</td>
+                    <td>${contact.email}</td>
+                    <td>
+                        <a class="btn btn-default btn-sm"
+                           href="${pageContext.request.contextPath}/servletFindContact?id=${contact.id}">修改</a>&nbsp;
+                        <a class="btn btn-default btn-sm"
+                           href="javascript:;" onclick="del('${contact.id}')">删除</a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
     </form>
     <hr>
     <div>
         <nav aria-label="Page navigation">
+            <%--上一页--%>
             <ul class="pagination">
-                <li>
-                    <a href="#" aria-label="Previous">
+                <c:if test="${pageBean.currentPage == 1}">
+                <li class="disabled">
+                    </c:if>
+                <c:if test="${pageBean.currentPage != 1}">
+                    <li>
+                </c:if>
+                    <a href="${pageContext.request.contextPath}/getByPage?currentPage=${pageBean.currentPage -1}&pageSize=5"
+                       aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
+
+                <c:forEach begin="1" end="${pageBean.totalPage}" var="i">
+                    <c:if test="${pageBean.currentPage == i}">
+                        <li class="active"><a
+                                href="${pageContext.request.contextPath}/getByPage?currentPage=${i}&pageSize=5">${i}</a>
+                        </li>
+                    </c:if>
+                    <c:if test="${pageBean.currentPage != i}">
+                        <li><a href="${pageContext.request.contextPath}/getByPage?currentPage=${i}&pageSize=5">${i}</a>
+                        </li>
+                    </c:if>
+                </c:forEach>
+                    <%--下一页--%>
                 <li>
-                    <a href="#" aria-label="Next">
+                    <a href="${pageContext.request.contextPath}/getByPage?currentPage=${pageBean.currentPage +1}&pageSize=5" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
                 <span style="font-size: 25px;margin-left: 10px">
-                    共16条记录，共4页
+                    共${pageBean.totalCount}条记录，共${pageBean.totalPage}页
                 </span>
             </ul>
         </nav>
@@ -116,9 +131,38 @@
 <script>
     function del(id) {
         var flag = confirm("您确定要删除这条数据吗？");
-        if(flag){
-            location.href = "${pageContext.request.contextPath}/servletDelete?id="+id;
+        if (flag) {
+            location.href = "${pageContext.request.contextPath}/servletDelete?id=" + id;
         }
     }
+
+    window.onload = function () {
+        document.getElementById("delSelected").onclick = function () {
+            var flag = false;
+            if (confirm("您确定要删除这些数据吗？")) {
+                var cbs = document.getElementsByName("uid");
+                for (var i = 0; i < cbs.length; i++) {
+                    //当连列表的复选框全部与第一个复选框一致
+                    if (cbs[i].checked) {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag) {
+                    //表单提交
+                    document.getElementById("form").submit();
+                }
+            }
+        };
+        //获取复选框的id
+        document.getElementById("one").onclick = function () {
+            var cbs = document.getElementsByName("uid");
+            for (var i = 0; i < cbs.length; i++) {
+                //当连列表的复选框全部与第一个复选框一致
+                cbs[i].checked = this.checked;
+            }
+        }
+    }
+
 </script>
 </html>
