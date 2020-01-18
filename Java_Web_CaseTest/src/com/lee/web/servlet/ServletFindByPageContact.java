@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * @ClassName:${NAME}
@@ -23,6 +24,7 @@ import java.io.IOException;
 public class ServletFindByPageContact extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         //1、接收参数,当前页
         String currentPage = request.getParameter("currentPage");
         String pageSize = request.getParameter("pageSize");
@@ -33,10 +35,14 @@ public class ServletFindByPageContact extends HttpServlet {
         if(pageSize == null || "".equals(pageSize)){
             pageSize = "5";
         }
+        //分页查询测条件
+        Map<String, String[]> condition = request.getParameterMap();
+        //将分页条件存进request域中
+        request.setAttribute("condition",condition);
         //2、调用service
         ContactService service = new ContactServiceImpl();
-        PageBean<Contact> pageBean = service.findByPageContact(currentPage,pageSize);
-        System.out.println(pageBean);
+        PageBean<Contact> pageBean = service.findByPageContact(currentPage,pageSize,condition);
+
         //3、存进域中
         request.setAttribute("pageBean",pageBean);
         //4、跳转页面

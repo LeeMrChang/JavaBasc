@@ -6,9 +6,11 @@ import com.lee.utils.JDBCUtil;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @ClassName:ContactDaoImpl
@@ -96,14 +98,55 @@ public class ContactDaoImpl implements ContactDao {
     }
 
     @Override
-    public int findByContactCount() {
-        String sql = "select count(*) from contact";
-        return jdbcTemplate.queryForObject(sql,Integer.class);
+    public int findByContactCount(Map<String, String[]> condition) {
+        String sql = "select count(*) from contact where 1=1 ";
+        //用来拼接动态sql
+        StringBuffer sb = new StringBuffer(sql);
+        //定义参数的list
+        List<Object> params = new ArrayList<>();
+        Set<String> set = condition.keySet();
+        for (String key : set) {
+            //排除分页查询的条件
+            if("currentPage".equals(key) || "pageSize".equals(key)){
+                    continue;
+            }
+
+            //获取到每个查询条件的name属性
+            String value = condition.get(key)[0];
+            if(value!=null && !"".equals(value)){
+                sb.append(" and "+key+" like ?");
+                params.add("%"+value+"%");
+            }
+        }
+        System.out.println(sb.toString());
+        System.out.println(params);
+        return jdbcTemplate.queryForObject(sb.toString(),Integer.class,params.toArray());
     }
 
     @Override
-    public List<Contact> findByContactPage(int start, int size) {
-        String sql = "select * from contact limit ?,?";
-        return jdbcTemplate.query(sql,new BeanPropertyRowMapper<Contact>(Contact.class),start,size);
+    public List<Contact> findByContactPage(int start, int size, Map<String, String[]> condition) {
+        String sql = "select * from contact where 1=1 ";
+        StringBuffer sb = new StringBuffer(sql);
+        Set<String> set = condition.keySet();
+        List<Object> params = new ArrayList<>();
+        for (String key : set) {
+            if("currentPage".equals(key) || "pageSize".equals(key)){
+                continue;
+            }
+            //获取到每个查询条件的name属性
+            String value = condition.get(key)[0];
+            if(value!=null && !"".equals(value)){
+                sb.append(" and "+key+" like ?");
+                params.add("%"+value+"%");
+            }
+        }
+        //拼接分页查询
+        sb.append(" limit ?,? ");
+        params.add(start);
+        params.add(size);
+        sql = sb.toString();
+        System.out.println(sql);
+
+        return jdbcTemplate.query(sql,new BeanPropertyRowMapper<Contact>(Contact.class),params.toArray());
     }
 }

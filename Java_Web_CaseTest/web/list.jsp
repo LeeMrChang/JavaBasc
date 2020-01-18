@@ -32,18 +32,18 @@
     <h3 style="text-align: center">用户信息列表</h3>
     <hr>
     <div style="float: left">
-        <form class="form-inline">
+        <form class="form-inline" action="${pageContext.request.contextPath}/getByPage" method="post">
             <div class="form-group">
                 <label for="exampleInputName2">姓名</label>
-                <input type="text" class="form-control" id="exampleInputName2">
+                <input type="text" name="username" class="form-control" id="exampleInputName2">
             </div>
             <div class="form-group">
                 <label for="exampleInputAddress2">籍贯</label>
-                <input type="email" class="form-control" id="exampleInputAddress2">
+                <input type="text" name="address" class="form-control" id="exampleInputAddress2">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail2">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail2">
+                <input type="text" name="email" class="form-control" id="exampleInputEmail2">
             </div>
             <button type="submit" class="btn btn-default">查询</button>
         </form>
@@ -94,10 +94,10 @@
                 <c:if test="${pageBean.currentPage == 1}">
                 <li class="disabled">
                     </c:if>
-                <c:if test="${pageBean.currentPage != 1}">
-                    <li>
-                </c:if>
-                    <a href="${pageContext.request.contextPath}/getByPage?currentPage=${pageBean.currentPage -1}&pageSize=5"
+                    <c:if test="${pageBean.currentPage != 1}">
+                <li>
+                    </c:if>
+                    <a href="${pageContext.request.contextPath}/getByPage?currentPage=${pageBean.currentPage -1}&pageSize=5&username=${condition.username[0]}&address=${condition.address[0]}&email=${condition.email[0]}"
                        aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
@@ -106,19 +106,27 @@
                 <c:forEach begin="1" end="${pageBean.totalPage}" var="i">
                     <c:if test="${pageBean.currentPage == i}">
                         <li class="active"><a
-                                href="${pageContext.request.contextPath}/getByPage?currentPage=${i}&pageSize=5">${i}</a>
+                                href="${pageContext.request.contextPath}/getByPage?currentPage=${i}&pageSize=5&username=${condition.username[0]}&address=${condition.address[0]}&email=${condition.email[0]}">${i}</a>
                         </li>
                     </c:if>
                     <c:if test="${pageBean.currentPage != i}">
-                        <li><a href="${pageContext.request.contextPath}/getByPage?currentPage=${i}&pageSize=5">${i}</a>
+                        <li><a href="${pageContext.request.contextPath}/getByPage?currentPage=${i}&pageSize=5&username=${condition.username[0]}&address=${condition.address[0]}&email=${condition.email[0]}">${i}</a>
                         </li>
                     </c:if>
                 </c:forEach>
-                    <%--下一页--%>
+                <%--最后一页--%>
+                <c:if test="${pageBean.currentPage == pageBean.totalPage}">
+                <li class="disabled">
+                    </c:if>
+                    <%--如果不是最后一页--%>
+                    <c:if test="${pageBean.currentPage != pageBean.totalPage}">
                 <li>
-                    <a href="${pageContext.request.contextPath}/getByPage?currentPage=${pageBean.currentPage +1}&pageSize=5" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
+                    </c:if>
+                        <%--还有下一页--%>
+                        <a href="${pageContext.request.contextPath}/getByPage?currentPage=${pageBean.currentPage +1}&pageSize=5&username=${condition.username[0]}&address=${condition.address[0]}&email=${condition.email[0]}"
+                           aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
                 </li>
                 <span style="font-size: 25px;margin-left: 10px">
                     共${pageBean.totalCount}条记录，共${pageBean.totalPage}页

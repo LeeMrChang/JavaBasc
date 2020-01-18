@@ -4,6 +4,7 @@ import com.lee.domain.Contact;
 import com.lee.domain.PageBean;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName:ContactService
@@ -30,5 +31,5 @@ public interface ContactService {
 
     void deleteUids(String[] uids);
 
-    PageBean<Contact> findByPageContact(String currentPage, String pageSize);
+    PageBean<Contact> findByPageContact(String currentPage, String pageSize, Map<String, String[]> condition);
 }

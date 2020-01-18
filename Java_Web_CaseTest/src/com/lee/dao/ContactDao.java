@@ -3,6 +3,7 @@ package com.lee.dao;
 import com.lee.domain.Contact;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName:ContactDao
@@ -24,8 +25,8 @@ public interface ContactDao {
 
     boolean updateContact(Contact contact);
 
-    int findByContactCount();
+    int findByContactCount(Map<String, String[]> condition);
 
 
-    List<Contact> findByContactPage(int start, int size);
+    List<Contact> findByContactPage(int start, int size, Map<String, String[]> condition);
 }
