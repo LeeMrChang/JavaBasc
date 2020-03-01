@@ -11,6 +11,7 @@
 
     <servlet-mapping>
         <servlet-name>demo01</servlet-name>
+        <!--配置访问路径-->
         <url-pattern>/demo01</url-pattern>
     </servlet-mapping>
 
