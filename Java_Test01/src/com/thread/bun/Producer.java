@@ -1,6 +1,7 @@
 package com.thread.bun;
 
 import javax.lang.model.element.VariableElement;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @ClassName:Producer
@@ -10,6 +11,8 @@ import javax.lang.model.element.VariableElement;
  * @Description: TODO
  */
 public class Producer extends Thread {
+
+    AtomicInteger i = new AtomicInteger(0);
 
     /**
      * 创建包子对象

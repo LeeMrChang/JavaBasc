@@ -12,11 +12,16 @@ import java.util.concurrent.Executors;
  */
 public class ExecutorTest01 {
 
+    private volatile int num = 1;
+
     public static void main(String[] args){
 
         //使用线程池的4个步骤
         //1、创建一个线程池，并设置线程池的数量 Executors
         ExecutorService es = Executors.newFixedThreadPool(2);
+
+        
+
         //3、使用submit方法，传入Runnable实现类对象,从线程中多次调用线程
         es.submit(new RunnableImpl());
         es.submit(new RunnableImpl());

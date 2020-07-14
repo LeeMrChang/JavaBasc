@@ -40,23 +40,28 @@ public class SortDou {
         //装牌
         Map<Integer, String> map = new HashMap();
 
-        //创建一个集合来封装牌的索引
-        List<Integer> list = new ArrayList<>();
+
 
         //定义一个变量作为牌的索引使用,每次添加元素后索引自增
-        int index = 1;
-        //初始先添加大小王
-        map.put(index, "🃏");
-        index++;
-        map.put(index, "🃏");
-        index++;
+        int index = 0;
+
 
         for (String number : numbers) {
             for (String color : colors) {
-                map.put(index, number + color);
-                list.add(index);
-                index++;
+                map.put(index++, number + color);
             }
+        }
+
+        //初始先添加大小王
+        map.put(index++, "大王");
+        map.put(index++, "小王");
+
+        System.out.println(map.toString());
+
+        //创建一个集合来封装牌的索引
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i <= 53; i++) {
+            list.add(i);
         }
 
         //2、洗牌

@@ -2,8 +2,27 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/JDBCTemplate/JDBCTemplate.iml" filepath="$PROJECT_DIR$/JDBCTemplate/JDBCTemplate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaScript_JS/JavaScript_JS.iml" filepath="$PROJECT_DIR$/JavaScript_JS/JavaScript_JS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaScript_JS_02/JavaScript_JS_02.iml" filepath="$PROJECT_DIR$/JavaScript_JS_02/JavaScript_JS_02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Cookies_01/Java_Cookies_01.iml" filepath="$PROJECT_DIR$/Java_Cookies_01/Java_Cookies_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Cookies_02/Java_Cookies_02.iml" filepath="$PROJECT_DIR$/Java_Cookies_02/Java_Cookies_02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_HttpResponse_01/Java_HttpResponse_01.iml" filepath="$PROJECT_DIR$/Java_HttpResponse_01/Java_HttpResponse_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_HttpServlet_01/Java_HttpServlet_01.iml" filepath="$PROJECT_DIR$/Java_HttpServlet_01/Java_HttpServlet_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_JDBC_C3P0/Java_JDBC_C3P0.iml" filepath="$PROJECT_DIR$/Java_JDBC_C3P0/Java_JDBC_C3P0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_JDBC_Druid/Java_JDBC_Druid.iml" filepath="$PROJECT_DIR$/Java_JDBC_Druid/Java_JDBC_Druid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Proxy/Java_Proxy.iml" filepath="$PROJECT_DIR$/Java_Proxy/Java_Proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Proxy_02/Java_Proxy_02.iml" filepath="$PROJECT_DIR$/Java_Proxy_02/Java_Proxy_02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Session_01/Java_Session_01.iml" filepath="$PROJECT_DIR$/Java_Session_01/Java_Session_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Session_02/Java_Session_02.iml" filepath="$PROJECT_DIR$/Java_Session_02/Java_Session_02.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java_Test01/Java_Test01.iml" filepath="$PROJECT_DIR$/Java_Test01/Java_Test01.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java_Test02/Java_Test02.iml" filepath="$PROJECT_DIR$/Java_Test02/Java_Test02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_TomCat/Java_TomCat.iml" filepath="$PROJECT_DIR$/Java_TomCat/Java_TomCat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Web_CaseTest/Java_Web_CaseTest.iml" filepath="$PROJECT_DIR$/Java_Web_CaseTest/Java_Web_CaseTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Web_Filter/Java_Web_Filter.iml" filepath="$PROJECT_DIR$/Java_Web_Filter/Java_Web_Filter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_Web_HTML/Java_Web_HTML.iml" filepath="$PROJECT_DIR$/Java_Web_HTML/Java_Web_HTML.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Jedis_Demo/Jedis_Demo.iml" filepath="$PROJECT_DIR$/Jedis_Demo/Jedis_Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Login_Text/Login_Text.iml" filepath="$PROJECT_DIR$/Login_Text/Login_Text.iml" />
     </modules>
   </component>
 </project>

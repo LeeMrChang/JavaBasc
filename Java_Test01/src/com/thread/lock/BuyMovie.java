@@ -15,7 +15,9 @@ public class BuyMovie implements Runnable {
     /**
      * Lock锁对象
      */
-    Lock lock = new ReentrantLock();
+    Lock lock = new ReentrantLock(true);
+
+
     @Override
     public void run() {
         while (true) {

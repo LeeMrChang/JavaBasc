@@ -11,7 +11,9 @@ public class DomeOne {
     /**
      * 一个对象，一个成员方法
      */
+
     public void show(){
+
         System.out.println("show1....执行...");
     }
 }

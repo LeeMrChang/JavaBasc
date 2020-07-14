@@ -1,7 +1,7 @@
 package com.lee;
 
 /**
- * 包名:com.itheima.proxy
+ * 包名:com.itheima.JDKproxy
  * 作者:Leevi
  * 日期2019-04-19  18:16
  */

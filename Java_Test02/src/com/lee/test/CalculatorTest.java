@@ -1,6 +1,8 @@
 package com.lee.test;
 
 import com.lee.junit.Calculator;
+
+import com.mysql.jdbc.StringUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -47,4 +49,21 @@ public class CalculatorTest {
         int sub = c.sub(32, 34);
         Assert.assertEquals(66,sub);
     }
+
+    @Test
+    public void sbus(){
+        String str = "abc,12,3yy98,0";
+        String[]  strs=str.split(",");
+        for(int i=0,len=strs.length;i<len;i++){
+            System.out.println(strs[i].toString());
+        }
+    }
+
+    @Test
+    public void sbus1(){
+        String str = "yyyy-MM-dd";
+        String replace = str.replace("-", "");
+        System.out.println(replace);
+    }
+
 }

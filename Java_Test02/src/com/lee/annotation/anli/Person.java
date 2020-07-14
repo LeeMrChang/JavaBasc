@@ -18,4 +18,5 @@ public @interface Person {
     //定义注解的属性，注解都是用来替代配置文件的
     String className();
     String methodName();
+
 }
